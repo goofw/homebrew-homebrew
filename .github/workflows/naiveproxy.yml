@@ -1,0 +1,35 @@
+name: update-naiveproxy
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/naiveproxy.yml'
+  schedule:
+    - cron: '33 * * * *'
+    
+jobs:        
+  update-naiveproxy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - run: |
+          version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/goofw/naiveproxy/releases/latest))
+          url=https://github.com/goofw/naiveproxy/releases/download/$version/naiveproxy-$version-mac-x64.tar.xz
+          sha256=$(curl -Ls $url | shasum -a 256 | cut -d " " -f 1 )
+          
+          sed -i "s|^  version.*|  version \"$version\"|" Formula/naiveproxy.rb
+          sed -i "s|^  url.*|  url \"$url\"|" Formula/naiveproxy.rb
+          sed -i "s|^  sha256.*|  sha256 \"$sha256\"|" Formula/naiveproxy.rb
+          
+          git config user.name $(git log -1 --pretty=format:'%an')
+          git config user.email $(git log -1 --pretty=format:'%ae')
+          git add .
+          git diff-index --quiet HEAD || git commit -m "update naiveproxy $version"
+          git push
+          
+      - uses: Mattraks/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 5
