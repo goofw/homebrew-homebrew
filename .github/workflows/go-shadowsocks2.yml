@@ -1,0 +1,35 @@
+name: update-go-shadowsocks2
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/go-shadowsocks2.yml'
+  schedule:
+    - cron: '33 * * * *'
+    
+jobs:        
+  update-go-shadowsocks2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - run: |
+          version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/goofw/go-shadowsocks2/releases/latest))
+          url=https://github.com/goofw/go-shadowsocks2/releases/download/$version/go-shadowsocks2-macos-64.zip
+          sha256=$(curl -Ls $url | shasum -a 256 | cut -d " " -f 1 )
+          
+          sed -i "s|^  version.*|  version \"$version\"|" Formula/go-shadowsocks2.rb
+          sed -i "s|^  url.*|  url \"$url\"|" Formula/go-shadowsocks2.rb
+          sed -i "s|^  sha256.*|  sha256 \"$sha256\"|" Formula/go-shadowsocks2.rb
+          
+          git config user.name $(git log -1 --pretty=format:'%an')
+          git config user.email $(git log -1 --pretty=format:'%ae')
+          git add .
+          git diff-index --quiet HEAD || git commit -m "update go-shadowsocks2 $version"
+          git push
+          
+      - uses: Mattraks/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 5
