@@ -3,7 +3,7 @@ class GoShadowsocks2 < Formula
   homepage "https://github.com/shadowsocks/go-shadowsocks2"
   version "acdbac0"
   url "https://github.com/goofw/go-shadowsocks2/releases/download/acdbac0/go-shadowsocks2-macos-64.zip"
-  sha256 "159f5c90ade00159d2d662cd55aaa3844f7dd3897005293a56a78207c57c993b"
+  sha256 "fb11e704714fb0c6b82399c70f68e8a7f94e8861b047faff4b6c64f201d24795"
   license "Apache-2.0"
 
   def install
