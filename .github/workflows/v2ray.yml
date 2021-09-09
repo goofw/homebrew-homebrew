@@ -5,8 +5,8 @@ on:
   push:
     paths:
       - '.github/workflows/v2ray.yml'
-  schedule:
-    - cron: '33 * * * *'
+  #schedule:
+  #  - cron: '33 * * * *'
     
 jobs:        
   update-v2ray:
