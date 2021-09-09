@@ -1,9 +1,9 @@
 class Naiveproxy < Formula
   desc "Make a fortune quietly"
   homepage "https://github.com/klzgrad/naiveproxy"
-  version "v93.0.4577.63-1"
-  url "https://github.com/goofw/naiveproxy/releases/download/v93.0.4577.63-1/naiveproxy-v93.0.4577.63-1-mac-x64.tar.xz"
-  sha256 "e62cfdd0e378173240223da068e5202cf8883a173c0f6f0cbc5a10d93b425273"
+  version "v93.0.4577.63-2"
+  url "https://github.com/goofw/naiveproxy/releases/download/v93.0.4577.63-2/naiveproxy-v93.0.4577.63-2-mac-x64.tar.xz"
+  sha256 "c7c74bc7e0e2723b46638fcd374fd16b3821c98cadb299dc3444bfa4950903eb"
   license "BSD"
 
   def install
