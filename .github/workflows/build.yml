@@ -24,6 +24,11 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '^1.16.3'
+          
+      - if: steps.check_version.outputs.RUN == 'true'
+        uses: actions/checkout@v2
+        with:
+          ref: v2ray
       
       - if: steps.check_version.outputs.RUN == 'true'
         uses: actions/checkout@v2
@@ -31,11 +36,6 @@ jobs:
           repository: v2fly/v2ray-core
           ref: ${{ env.VERSION }}
           path: build
-          
-      - if: steps.check_version.outputs.RUN == 'true'
-        uses: actions/checkout@v2
-        with:
-          ref: v2ray
           
       - if: steps.check_version.outputs.RUN == 'true'
         run: |
