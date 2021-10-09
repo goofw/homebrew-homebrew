@@ -39,12 +39,14 @@ jobs:
           
       - if: steps.check_version.outputs.RUN == 'true'
         run: |
-          cp transport/internet/tcp/sockopt_darwin.go build/transport/internet/tcp/sockopt_darwin.go
+          cd build
+          cp ../transport/internet/tcp/sockopt_darwin.go transport/internet/tcp/sockopt_darwin.go
           sed -i '1s/$/,!darwin/' transport/internet/tcp/sockopt_other.go
-          CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o v2ray -trimpath -ldflags "-s -w -buildid=" build/main
+          CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o v2ray -trimpath -ldflags "-s -w -buildid=" ./main
+          cd ..
           
           wget https://github.com/v2fly/v2ray-core/releases/download/$VERSION/v2ray-macos-64.zip
-          zip -9vr v2ray-macos-64.zip v2ray
+          zip -9vr v2ray-macos-64.zip build/v2ray
           echo $VERSION > VERSION
           
           git config user.name $(git log -1 --pretty=format:'%an')
