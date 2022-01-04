@@ -2,16 +2,21 @@ name: update-v2ray
 
 on:
   workflow_dispatch:
-  #push:
-  #  paths:
-  #    - '.github/workflows/v2ray.yml'
-  #schedule:
-  #  - cron: '33 * * * *'
+  push:
+    paths:
+      - '.github/workflows/v2ray.yml'
+  schedule:
+    - cron: '33 * * * *'
     
 jobs:        
   update-v2ray:
     runs-on: ubuntu-latest
     steps:
+      - uses: Mattraks/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 5
+          
       - uses: actions/checkout@v2
       
       - run: |
@@ -28,8 +33,3 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "update v2ray $version"
           git push
-          
-      - uses: Mattraks/delete-workflow-runs@main
-        with:
-          retain_days: 1
-          keep_minimum_runs: 5
