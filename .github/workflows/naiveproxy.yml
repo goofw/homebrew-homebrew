@@ -12,6 +12,11 @@ jobs:
   update-naiveproxy:
     runs-on: ubuntu-latest
     steps:
+      - uses: Mattraks/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 5
+          
       - uses: actions/checkout@v2
       
       - run: |
@@ -28,8 +33,3 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "update naiveproxy $version"
           git push
-          
-      - uses: Mattraks/delete-workflow-runs@main
-        with:
-          retain_days: 1
-          keep_minimum_runs: 5
