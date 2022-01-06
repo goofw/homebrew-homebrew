@@ -2,11 +2,11 @@ name: update-go-shadowsocks2
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/go-shadowsocks2.yml'
-  schedule:
-    - cron: '33 * * * *'
+  #push:
+  #  paths:
+  #    - '.github/workflows/go-shadowsocks2.yml'
+  #schedule:
+  #  - cron: '33 * * * *'
     
 jobs:        
   update-go-shadowsocks2:
