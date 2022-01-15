@@ -1,9 +1,9 @@
 class V2ray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://v2fly.org/"
-  version "v5.0.2"
-  url "https://github.com/goofw/v2ray/releases/download/v5.0.2/v2ray-macos-64.zip"
-  sha256 "3cc8aec5dd43e781f3457b62464958524d04c78e1b34e736b4cff127e9c39d93"
+  version "v5.0.3"
+  url "https://github.com/goofw/v2ray/releases/download/v5.0.3/v2ray-macos-64.zip"
+  sha256 "49aa33d547e65f6d4fda5cb5f4fa4afaa248656dc08f01a6a0bcedef4565c1c4"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
 
   def install
