@@ -3,7 +3,7 @@ class Naiveproxy < Formula
   homepage "https://github.com/klzgrad/naiveproxy"
   version "v105.0.5195.52-1"
   url "https://github.com/klzgrad/naiveproxy/releases/download/v105.0.5195.52-1/naiveproxy-v105.0.5195.52-1-mac-x64.tar.xz"
-  sha256 "f836fdf69bb94d3f408555ee277a4a4f264da6b1b6fccd04f6aa1853ea256f9a"
+  sha256 "de78a2a1c47722ab165a36d29e849075e7920e925194eb8ee25f0dafab3cd01c"
   license "BSD"
 
   def install
