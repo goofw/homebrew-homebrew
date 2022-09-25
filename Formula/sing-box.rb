@@ -11,6 +11,6 @@ class SingBox < Formula
   end
 
   test do
-    system "#{bin}/sing-box", "--version"
+    system "#{bin}/sing-box", "version"
   end
 end
