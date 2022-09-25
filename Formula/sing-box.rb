@@ -1,4 +1,4 @@
-class Singbox < Formula
+class SingBox < Formula
   desc "The universal proxy platform"
   homepage "https://github.com/SagerNet/sing-box"
   version "v1.0.4"
