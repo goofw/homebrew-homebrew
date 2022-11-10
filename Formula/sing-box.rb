@@ -1,9 +1,9 @@
 class SingBox < Formula
   desc "The universal proxy platform"
   homepage "https://github.com/SagerNet/sing-box"
-  version "v1.1-beta13"
-  url "https://github.com/goofw/sing-box/releases/download/v1.1-beta13/sing-box-darwin-amd64.tar.gz"
-  sha256 "23f908ea8e81f9e02d6b032e061a83ce4146914db63d58bc35e1dbfcaef5c52c"
+  version "v1.1-beta14"
+  url "https://github.com/goofw/sing-box/releases/download/v1.1-beta14/sing-box-darwin-amd64.tar.gz"
+  sha256 "d86b00f975b0149d926bb3b94e6c1bbbd9459dd5aeef506a38747b09bf8e4c2b"
   license "GPL-3.0-or-later"
 
   def install
