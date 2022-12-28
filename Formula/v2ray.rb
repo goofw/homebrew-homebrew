@@ -3,7 +3,7 @@ class V2ray < Formula
   homepage "https://v2fly.org/"
   version "v5.1.0"
   url "https://github.com/goofw/v2ray/releases/download/v5.1.0/v2ray-macos-64.zip"
-  sha256 "4245fdcaff40d704170d3408fc32901ff35009f4d8a828d56881215bf1552548"
+  sha256 "3288e4a24de439e920e269fb660ba24b8d7ca52dc7fec4158e6be1415dc61c1f"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
 
   def install
