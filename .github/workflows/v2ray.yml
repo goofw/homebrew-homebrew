@@ -2,11 +2,11 @@ name: update-v2ray
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/v2ray.yml'
-  schedule:
-    - cron: '33 * * * *'
+  #push:
+  #  paths:
+  #    - '.github/workflows/v2ray.yml'
+  #schedule:
+  #  - cron: '33 * * * *'
     
 jobs:        
   update-v2ray:
