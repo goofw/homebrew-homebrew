@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       
       - run: |
-          version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/goofw/sing-box/releases/latest))
-          url=https://github.com/goofw/sing-box/releases/download/$version/sing-box-darwin-amd64.tar.gz
+          version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/goofw/app/releases/latest))
+          url=https://github.com/goofw/app/releases/download/$version/sing-box-darwin-amd64.tar.gz
           sha256=$(curl -Ls $url | shasum -a 256 | cut -d " " -f 1 )
           
           sed -i "s|^  version.*|  version \"$version\"|" Formula/sing-box.rb
