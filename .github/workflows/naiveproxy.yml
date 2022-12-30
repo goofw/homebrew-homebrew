@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/naiveproxy.yml'
   schedule:
-    - cron: '33 * * * *'
+    - cron: '33 0 * * *'
     
 jobs:        
   update-naiveproxy:
