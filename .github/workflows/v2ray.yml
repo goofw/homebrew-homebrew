@@ -2,11 +2,11 @@ name: update-v2ray
 
 on:
   workflow_dispatch:
-  #push:
-  #  paths:
-  #    - '.github/workflows/v2ray.yml'
-  #schedule:
-  #  - cron: '33 * * * *'
+  push:
+    paths:
+      - '.github/workflows/v2ray.yml'
+  schedule:
+    - cron: '33 * * * *'
     
 jobs:        
   update-v2ray:
@@ -20,8 +20,10 @@ jobs:
       - uses: actions/checkout@v2
       
       - run: |
-          version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/goofw/v2ray/releases/latest))
-          url=https://github.com/goofw/v2ray/releases/download/$version/v2ray-macos-64.zip
+          #version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/goofw/v2ray/releases/latest))
+          #url=https://github.com/goofw/v2ray/releases/download/$version/v2ray-macos-64.zip
+          version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/v2fly/v2ray-core/releases/latest))
+          url=https://github.com/v2fly/v2ray-core/releases/download/$version/v2ray-macos-64.zip
           sha256=$(curl -Ls $url | shasum -a 256 | cut -d " " -f 1 )
           
           sed -i "s|^  version.*|  version \"$version\"|" Formula/v2ray.rb
