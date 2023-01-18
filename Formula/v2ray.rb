@@ -19,6 +19,6 @@ class V2ray < Formula
   end
 
   test do
-    system "#{bin}/v2ray", "--version"
+    system "#{bin}/v2ray", "version"
   end
 end
