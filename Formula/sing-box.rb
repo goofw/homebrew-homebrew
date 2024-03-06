@@ -3,7 +3,7 @@ class SingBox < Formula
   homepage "https://github.com/SagerNet/sing-box"
   version "v1.8.8"
   url "https://github.com/goofw/app/releases/download/v1.8.8/sing-box-darwin-amd64.tar.gz"
-  sha256 "73269d6da9ac38dfbe5209ffb19aadf1adfb35999226cbf013edb73a931d83a8"
+  sha256 "6adcb4c171c9d9c66ef807c0fcc7fb10a5f88aa51c11ab898c38fb02fe05bab8"
   license "GPL-3.0-or-later"
 
   def install
